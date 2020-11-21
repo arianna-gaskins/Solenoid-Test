@@ -1,21 +1,39 @@
+const int delayS = 1000;
+const int delayL = 500;
 int solenoidPin = 9;
 int greenLedPin = 10;
 int redLedPin = 11;
-int delayTime = 1000;
 
-void setup(){
+void setup() {
     pinMode(solenoidPin, OUTPUT);
     pinMode(greenLedPin, OUTPUT);
     pinMode(redLedPin, OUTPUT);
 }
 
-void loop(){
-
+void loop() {
+    lockSolenoid(solenoidPin);
+    testSolenoid(solenoidPin, redLedPin, greenLedPin);
 }
 
-void lockSolenoid(int lockPin){
+void lockSolenoid(int lockPin) {
     digitalWrite(lockPin, HIGH);
-    delay(delayTime);
+    delay(delayS);
     digitalWrite(lockPin, LOW);
-    delay(delayTime);
+    delay(delayS);
+}
+
+void testSolenoid(int lockPin, int red, int green) {
+    if (lockPin != HIGH) {
+        digitalWrite(red, HIGH);
+        delay(delayL);
+        digitalWrite(red, LOW);
+        delay(delayL);
+    }
+
+    if (lockPin = HIGH) {
+        digitalWrite(green, HIGH);
+        delay(delayL);
+        digitalWrite(green, LOW);
+        delay(delayL);
+    }
 }
