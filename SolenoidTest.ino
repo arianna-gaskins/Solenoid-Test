@@ -1,5 +1,4 @@
-const int delayS = 1000;
-const int delayL = 500;
+const int delayTime = 1000;
 int solenoidPin = 9;
 int greenLedPin = 10;
 int redLedPin = 11;
@@ -17,23 +16,23 @@ void loop() {
 
 void lockSolenoid(int lockPin) {
     digitalWrite(lockPin, HIGH);
-    delay(delayS);
+    delay(delayTime);
     digitalWrite(lockPin, LOW);
-    delay(delayS);
+    delay(delayTime);
 }
 
 void testSolenoid(int lockPin, int red, int green) {
-    if (lockPin != HIGH) {
+    if (digitalRead(lockPin) != HIGH) {
         digitalWrite(red, HIGH);
-        delay(delayL);
+        delay(delayTime);
         digitalWrite(red, LOW);
-        delay(delayL);
+        delay(delayTime);
     }
 
-    if (lockPin = HIGH) {
+    if (digitalRead(lockPin) == HIGH) {
         digitalWrite(green, HIGH);
-        delay(delayL);
+        delay(delayTime);
         digitalWrite(green, LOW);
-        delay(delayL);
+        delay(delayTime);
     }
 }
